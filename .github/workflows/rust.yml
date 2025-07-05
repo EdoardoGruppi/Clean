@@ -26,7 +26,7 @@ jobs:
           - target: x86_64-unknown-linux-gnu
             os: ubuntu-latest
           - target: x86_64-unknown-linux-gnu
-            os: ubuntu-20.04
+            os: ubuntu-latest
             suffix: rocky-9
             container: rockylinux:9
           - target: x86_64-apple-darwin
