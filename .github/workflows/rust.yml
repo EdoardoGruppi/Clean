@@ -64,4 +64,4 @@ jobs:
           zip: all
           # (required) GitHub token for uploading assets to GitHub Releases.
           token: ${{ secrets.GITHUB_TOKEN }}
-          archive: ${{ bin }}-${{ matrix.suffix }}-${{ matrix.target }}
+          archive: clean-${{ matrix.suffix }}-${{ matrix.target }}
