@@ -1,0 +1,3 @@
+# Clean
+
+**Clean** is a command-line utility that pushes the current terminal content offscreen by repositioning the cursor to the top-left corner. Unlike the clear command, which erases all content from the terminal buffer, clean preserves the existing output, allowing you to scroll back and view previous content if needed. This makes it ideal for soft resetting the screen without losing any terminal history or context. It automatically detects your terminal size to ensure consistent behavior across environments and provides a simple way to visually refresh your terminal display without deleting any data.
