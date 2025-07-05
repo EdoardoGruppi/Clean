@@ -45,7 +45,7 @@ jobs:
       - name: Install Rust (if in container)
         if: matrix.container != ''
         run: |
-          dnf install -y curl gcc make --allowerasing
+          dnf install -y curl gcc make jq --allowerasing
           curl https://sh.rustup.rs -sSf | sh -s -- -y
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
       - uses: actions/checkout@v4
