@@ -50,6 +50,7 @@ jobs:
           dnf install -y curl gcc make jq zip gh --allowerasing
           curl https://sh.rustup.rs -sSf | sh -s -- -y
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+          git config --global --add safe.directory /__w/Clean/Clean
       - uses: actions/checkout@v4
       - uses: taiki-e/upload-rust-binary-action@v1
         with:
