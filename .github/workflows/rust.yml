@@ -42,6 +42,16 @@ jobs:
     runs-on: ${{ matrix.os }}
     container: ${{ matrix.container }}
     steps:
+      - name: Install Rust (if in container)
+        if: matrix.container != ''
+        run: |
+          dnf install -y curl gcc make
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+      - name: Show Rust and GLIBC versions
+        run: |
+          rustc --version
+          ldd --version
       - uses: actions/checkout@v4
       - uses: taiki-e/upload-rust-binary-action@v1
         with:
