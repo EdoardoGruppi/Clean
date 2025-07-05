@@ -25,15 +25,22 @@ jobs:
         include:
           - target: x86_64-unknown-linux-gnu
             os: ubuntu-latest
+            suffix: ""
+            container: ""
           - target: x86_64-unknown-linux-gnu
             os: ubuntu-latest
             suffix: rocky-9
             container: rockylinux:9
           - target: x86_64-apple-darwin
             os: macos-latest
+            suffix: ""
+            container: ""
           - target: x86_64-pc-windows-msvc
             os: windows-latest
+            suffix: ""
+            container: ""
     runs-on: ${{ matrix.os }}
+    container: ${{ matrix.container }}
     steps:
       - uses: actions/checkout@v4
       - uses: taiki-e/upload-rust-binary-action@v1
@@ -57,3 +64,4 @@ jobs:
           zip: all
           # (required) GitHub token for uploading assets to GitHub Releases.
           token: ${{ secrets.GITHUB_TOKEN }}
+          archive: ${{ bin }}-${{ matrix.suffix }}-${{ matrix.target }}
